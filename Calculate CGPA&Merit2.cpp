@@ -74,7 +74,20 @@ float Student::get_cgpa(){
         return (float)Total_GPA/Total_Credit;
     }
 
+class Merit{
+public:
 
+void merit_processing(Student s[],int n,float S_cgpa){
+  int merit =0;
+    for(int i=0;i<n;i++){
+       if(S_cgpa<s[i].get_cgpa()){
+        ++merit;
+       }
+    }
+ cout<<"\tMerit : "<<merit+1<<endl;
+}
+
+};
 int main(){
 
     cout<<"Enter the number of Student: ";
@@ -97,12 +110,8 @@ int main(){
         temp=student[i].get_cgpa();
        }
     }
-    int merit =0;
-    for(int i=0;i<number_of_student;i++){
-       if(temp<student[i].get_cgpa()){
-        merit++;
-       }
-    }
-    cout<<"\tMerit : "<<merit+1<<endl;
+    Merit m;
+    m.merit_processing(student,number_of_student,temp);
+
     return 0;
 }
